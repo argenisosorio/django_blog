@@ -1,15 +1,25 @@
 {% extends "base/base.html" %}
-{% block titulo %}Index{% endblock %}
+{% block titulo %}Blog{% endblock %}
 {% block cuerpo %}
-<h1>Posts</h1>
-<a href="{% url 'post_nuevo' %}">Nuevo</a>
-<ul>
-    {% for post in object_list %}
-    <li>{{ post.autor }} | {{ post.titulo }} | {{ post.cuerpo }} | {{ post.fecha }}
-    <a href="{% url 'post_editar' post.id %}">Editar</a>
-    <a href="{% url 'post_eliminar' post.id %}">Borrar</a>
-    </li>
-    {% endfor %}
-</ul>
-{% endblock %}
+<h1>Publicaciones</h1>
+<br />
 
+<a href="{% url 'post_nuevo' %}"><button id="boton" class="btn btn-success">Nuevo</button></a>
+
+<br />
+<br />
+{% for post in object_list %}
+<div class="well cuerpo_post">
+	<h2>{{ post.titulo }}</h2>
+	<p>
+	{{ post.cuerpo }}
+	</p>
+	<br>
+	<b>Autor:</b> {{ post.autor }}, el {{ post.fecha }}
+	<br />
+	<br />
+	<a href="{% url 'post_editar' post.id %}"><button id="boton" class="btn btn-warning">Editar</button></a>
+	<a href="{% url 'post_eliminar' post.id %}"><button id="boton" class="btn btn-danger">Borrar</button></a>
+</div>
+{% endfor %}
+{% endblock %}

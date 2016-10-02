@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 """
 Django settings for django_blog project.
 
@@ -37,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'base',
+    'app_blog',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +122,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
+
+## Configuración de la raíz donde se encuentran los archivos estaticos del sistema (para entornos en producción)
+STATIC_ROOT = ''
+
+## Configuración de los directorios en donde se encuentran los archivos estáticos
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static/'),
+)

@@ -58,6 +58,15 @@
 
     <div class="container theme-showcase" role="main">
 
+      {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+              {% if message.tags %}{% endif %}>
+              {{ message }}
+            </div>
+          {% endfor %}
+      {% endif %}
+
       <!-- well
       ================================================== -->
       <div class="well body">

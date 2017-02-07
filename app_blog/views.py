@@ -7,6 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from .models import *
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 
@@ -15,20 +16,24 @@ class PostLista(ListView):
 
 
 
-class PostCrear(CreateView):
+class PostCrear(SuccessMessageMixin,CreateView):
     model = Post
     fields = ['autor', 'titulo', 'cuerpo', 'fecha']
     success_url = reverse_lazy('post_lista')
+    success_message = "Se creó la publicación con éxito"
 
 
 
-class PostActualizar(UpdateView):
+class PostActualizar(SuccessMessageMixin,UpdateView):
     model = Post
     fields = ['autor', 'titulo', 'cuerpo', 'fecha']
     success_url = reverse_lazy('post_lista')
+    success_message = "Se actualizó la publicación con éxito"
 
 
 
-class PostEliminar(DeleteView):
+class PostEliminar(SuccessMessageMixin,DeleteView):
     model = Post
+    fields = ['autor', 'titulo', 'cuerpo', 'fecha']
     success_url = reverse_lazy('post_lista')
+    success_message = "Se eliminó la publicación con éxito"

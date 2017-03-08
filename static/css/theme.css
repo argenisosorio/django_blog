@@ -28,3 +28,7 @@ body {
 .cuerpo_post {
 	text-align: justify;
 }
+
+#id_fecha {
+  display: none;
+}

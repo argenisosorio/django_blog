@@ -5,7 +5,6 @@ from django.core.urlresolvers import reverse
 from datetime import datetime
 
 
-
 class Post(models.Model):
     autor = models.CharField(max_length=50)
     titulo = models.CharField(max_length=50)
@@ -15,5 +14,5 @@ class Post(models.Model):
     def __unicode__(self):
         return self.autor
 
-	def get_absolute_url(self):
-		return reverse('post_editar', kwargs={'pk': self.pk})
+    def get_absolute_url(self):
+        return reverse('post_editar', kwargs={'pk': self.pk})

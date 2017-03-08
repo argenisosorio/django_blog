@@ -1,0 +1,18 @@
+{% extends "base/base.html" %}
+{% block titulo %}Blog{% endblock %}
+{% block cuerpo %}
+<h2>Ultimas publicaciones</h2>
+{% for post in object_list %}
+<div class="well cuerpo_post">
+    Publicado el: {{ post.fecha }}, por: {{ post.autor }}
+    <h2>{{ post.titulo }}</h2>
+    <p>
+    {{ post.cuerpo }}
+    </p>
+    <br />
+    <br />
+    <a href="{% url 'post_editar' post.id %}"><button id="boton" class="btn btn-warning">Editar</button></a>
+    <a href="{% url 'post_eliminar' post.id %}"><button id="boton" class="btn btn-danger">Borrar</button></a>
+</div>
+{% endfor %}
+{% endblock %}

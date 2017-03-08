@@ -10,10 +10,8 @@ from .models import *
 from django.contrib.messages.views import SuccessMessageMixin
 
 
-
 class PostLista(ListView):
     model = Post
-
 
 
 class PostCrear(SuccessMessageMixin,CreateView):
@@ -23,13 +21,11 @@ class PostCrear(SuccessMessageMixin,CreateView):
     success_message = "Se creó la publicación con éxito"
 
 
-
 class PostActualizar(SuccessMessageMixin,UpdateView):
     model = Post
     fields = ['autor', 'titulo', 'cuerpo', 'fecha']
     success_url = reverse_lazy('post_lista')
     success_message = "Se actualizó la publicación con éxito"
-
 
 
 class PostEliminar(SuccessMessageMixin,DeleteView):

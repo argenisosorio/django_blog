@@ -8,6 +8,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import render
 from .models import *
 from django.contrib.messages.views import SuccessMessageMixin
+from app_blog.forms import PostForm
 
 
 class PostLista(ListView):
@@ -16,7 +17,7 @@ class PostLista(ListView):
 
 class PostCrear(SuccessMessageMixin,CreateView):
     model = Post
-    fields = ['autor', 'titulo', 'cuerpo', 'fecha']
+    form_class = PostForm
     success_url = reverse_lazy('post_lista')
     success_message = "Se creó la publicación con éxito"
 

@@ -14,4 +14,6 @@ $ python manage.py makemigrations
 
 $ python manage.py makemigrations app_blog
 
+$ python manage.py migrate
+
 $ python manage.py runserver

@@ -5,7 +5,7 @@ from django.views.generic import TemplateView, CreateView, ListView, UpdateView,
 from django.views import generic
 from django.core.urlresolvers import reverse_lazy
 from django.core.urlresolvers import reverse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import *
 from django.contrib.messages.views import SuccessMessageMixin
 from app_blog.forms import PostForm
@@ -34,3 +34,8 @@ class PostEliminar(SuccessMessageMixin,DeleteView):
     fields = ['autor', 'titulo', 'cuerpo', 'fecha']
     success_url = reverse_lazy('post_lista')
     success_message = "Se eliminó la publicación con éxito"
+
+
+def PostDetalle(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render (request, 'app_blog/post_detail.html', {'post': post})

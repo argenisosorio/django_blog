@@ -15,7 +15,6 @@ class PostForm(forms.ModelForm):
             'autor',
             'titulo',
             'cuerpo',
-            'fecha',
         ]
 
         widgets = {
@@ -30,9 +29,5 @@ class PostForm(forms.ModelForm):
             'cuerpo': forms.Textarea(attrs={
                 'class':'form-control input-md',
                 'style': 'min-width: 0; width: 50%; display: inline;',
-            }),
-            'fecha': forms.TextInput(attrs={
-                'class':'form-control input-md',
-                'style': 'min-width: 0; width: 50%;',
             }),
         }

@@ -131,3 +131,6 @@ STATICFILES_DIRS = (
 )
 
 #MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
+# URL a la que se redirecciona cuando no hay usuario logeado
+LOGIN_URL = "/"

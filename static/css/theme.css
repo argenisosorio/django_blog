@@ -32,3 +32,11 @@ body {
 #id_fechaa {
   display: none;
 }
+
+#id_username {
+  width: 200px;
+}
+
+#id_password {
+  width: 200px;
+}

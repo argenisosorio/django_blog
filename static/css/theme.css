@@ -40,3 +40,7 @@ body {
 #id_password {
   width: 200px;
 }
+
+.well-post_list {
+  background: #fff;
+}

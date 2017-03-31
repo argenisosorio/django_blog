@@ -2,7 +2,7 @@
 {% block titulo %}Crear{% endblock %}
 {% block cuerpo %}
 <h2>Publicar artículo</h2>
-<div class="well cuerpo_post">
+<div class="well well-post_list cuerpo_post">
     <form method="post">{% csrf_token %}
         <b>Autor:</b><br />
         {{ form.autor }}

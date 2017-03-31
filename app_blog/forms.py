@@ -20,14 +20,14 @@ class PostForm(forms.ModelForm):
         widgets = {
             'autor': forms.TextInput(attrs={
                 'class':'form-control input-md',
-                'style': 'min-width: 0; width: 50%; display: inline;',
+                'style': 'min-width: 0; width: 100%; display: inline;',
             }),
             'titulo': forms.TextInput(attrs={
                 'class':'form-control input-md',
-                'style': 'min-width: 0; width: 50%; display: inline;',
+                'style': 'min-width: 0; width: 100%; display: inline;',
             }),
             'cuerpo': forms.Textarea(attrs={
                 'class':'form-control input-md',
-                'style': 'min-width: 0; width: 50%; display: inline;',
+                'style': 'min-width: 0; width: 100%; display: inline;',
             }),
         }

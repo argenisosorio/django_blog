@@ -3,7 +3,7 @@
 {% block cuerpo %}
 <h2>Ultimas publicaciones</h2>
 {% for post in object_list %}
-<div class="well cuerpo_post">
+<div class="well well-post_list cuerpo_post">
     Publicado el: {{ post.fecha }}, por: {{ post.autor }}
     <h2>{{ post.titulo }}</h2>
     <p>

@@ -1,6 +1,6 @@
 Proyecto tipo Blog en Django
 ===
-## detalles
+## Detalles
 * Incorpora autenticación de usuarios
 * Crear, Actualizar, Eliminar y Detallar publicaciones
 ## Requerimientos

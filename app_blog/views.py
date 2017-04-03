@@ -24,7 +24,7 @@ class PostCrear(SuccessMessageMixin,CreateView):
 
 class PostActualizar(SuccessMessageMixin,UpdateView):
     model = Post
-    fields = ['autor', 'titulo', 'cuerpo', 'fecha']
+    form_class = PostForm
     success_url = reverse_lazy('post_lista')
     success_message = "Se actualizó la publicación con éxito"
 

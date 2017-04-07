@@ -18,6 +18,7 @@ from django.views.generic import View
 
 class Login(View):
     form = forms.AuthenticationForm
+    template_name = "participacion.create.html"
 
     def get(self, request):
         context = {'form' : self.form()}
@@ -43,23 +44,3 @@ class Logout(View):
     def get(self, request):
         logout(request)
         return redirect('login')
-
-
-
-class Register(View):
-  form = forms.UserCreationForm
-
-  def get(self, request):
-    context = {'form' : self.form()}
-    return render(request, 'usuario/register.html', context)
-
-  def post(self, request):
-    form = self.form(request.POST)
-    if form.is_valid():
-      print 'here'
-      form.save()
-      return redirect('login')
-    else:
-      print 'there'
-      context = {'form': form}
-      return render(request, 'usuario/register.html', context)

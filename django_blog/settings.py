@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'base',
     'app_blog',
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +59,7 @@ ROOT_URLCONF = 'django_blog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,6 +133,3 @@ STATICFILES_DIRS = (
 )
 
 #MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
-
-# URL a la que se redirecciona cuando no hay usuario logeado
-LOGIN_URL = "/"

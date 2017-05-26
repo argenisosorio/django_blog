@@ -1,26 +1,72 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.forms import (
+    ModelForm, TextInput, EmailInput, CharField, EmailField, PasswordInput, Select
+)
 
 
-class RegisterForm(UserCreationForm):
-    first_name = forms.CharField(label='First Name')
-    last_name = forms.CharField(label='Last Name')
-    email = forms.EmailField(label='Email Address')
+class LoginForm(AuthenticationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
-  
 
-    def save(self, commit=True):
-        user = super(RegisterForm, self).save(commit=False)
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
-        user.email = self.cleaned_data['email']
-        user.set_password(self.cleaned_data['password1'])
-        if commit:
-            user.save()
-            return user
+    fields = [
+        'username',
+        'password',
+    ]
+
+    widgets = {
+        'username': forms.TextInput(attrs={
+            'class':'form-control input-md',
+            'style': 'min-width: 0; width: 50%; display: inline;',
+        }),
+        'password': forms.PasswordInput(attrs={
+            'class':'form-control input-md',
+            'style': 'min-width: 0; width: 50%; display: inline;',
+        }),
+    }
+
+
+class RegisterForm(UserCreationForm):
+
+    class Meta:
+        model = User
+
+        fields = [
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2',
+        ]
+
+        widgets = {
+            'username': forms.TextInput(attrs={
+                'class':'form-control input-md',
+                'style': 'min-width: 0; width: 50%; display: inline;',
+            }),
+            'first_name': forms.TextInput(attrs={
+                'class':'form-control input-md',
+                'style': 'min-width: 0; width: 50%; display: inline;',
+            }),
+            'last_name': forms.TextInput(attrs={
+                'class':'form-control input-md',
+                'style': 'min-width: 0; width: 50%; display: inline;',
+            }),
+            'email': forms.TextInput(attrs={
+                'class':'form-control input-md',
+                'style': 'min-width: 0; width: 50%; display: inline;',
+            }),
+            'password1': forms.PasswordInput(attrs={
+                'class':'form-control input-md',
+                'style': 'min-width: 0; width: 50%; display: inline;',
+            }),
+            'password2': forms.PasswordInput(attrs={
+                'class':'form-control input-md',
+                'style': 'min-width: 0; width: 50%; display: inline;',
+            }),
+        }

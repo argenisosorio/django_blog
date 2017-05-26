@@ -1,19 +1,16 @@
 {% extends "base/base.html" %}
-{% block titulo %}Iniciar sesión{% endblock %}
+{% block titulo %}Login{% endblock %}
 {% block cuerpo %}
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#id_username").attr("class", "form-control input-md");
-        $("#id_password").attr("class", "form-control input-md");
-    });    
-</script>
-<h2>Iniciar sesión</h2>
-    <form action="{% url 'login' %}" method="post">{% csrf_token %}
-    Usuario: {{ form.username }}
+<h2>Login</h2>
+<form action="{% url 'login' %}" method="post">{% csrf_token %}
+    Username: {{ form.username }}
     <br />
-    Contraseña: {{ form.password }}
+    Password: {{ form.password }}
     <br />
     <br />
-    <button class="btn btn-primary" type="submit">Entrar</button>
+    <a href="{% url 'register' %}"><button class="btn btn-primary" type="submit">Create account</button></a>
+    <br />
+    <br />
+    <button class="btn btn-success" type="submit">Login</button>
 </form>
 {% endblock %}

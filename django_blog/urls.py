@@ -6,4 +6,5 @@ urlpatterns = [
     url(r'^', include('usuario.urls')),
 	url(r'^', include('app_blog.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^captcha/', include('captcha.urls'))
 ]

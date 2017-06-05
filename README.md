@@ -5,11 +5,13 @@ Proyecto tipo Blog en Django
 * Crear, Actualizar, Eliminar y Detallar publicaciones
 ## Requerimientos
 ```python
-Django==1.10.1
 Python 2.7.3
+Django==1.10.1
+django-simple-captcha==0.5.5
 ```
 ## Ejecutar el proyecto
 ```python
+$ pip install -r requirements.txt
 $ python manage.py migrate
 $ python manage.py createsuperuser
 $ python manage.py makemigrations app_blog

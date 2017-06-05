@@ -7,6 +7,7 @@ from django.forms import (
     ModelForm, TextInput, EmailInput, CharField, EmailField, PasswordInput, Select
 )
 from django import forms
+from captcha.fields import CaptchaField
 
 
 class LoginForm(AuthenticationForm):
@@ -21,12 +22,15 @@ class LoginForm(AuthenticationForm):
         'style': 'min-width: 0; width: 25%; display: inline;',
     }), required = True)
 
+    captcha = CaptchaField()
+
     class Meta:
         model = User
 
     fields = [
         'username',
         'password',
+        'captcha',
     ]
 
 

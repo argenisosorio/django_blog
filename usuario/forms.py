@@ -6,9 +6,20 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.forms import (
     ModelForm, TextInput, EmailInput, CharField, EmailField, PasswordInput, Select
 )
+from django import forms
 
 
 class LoginForm(AuthenticationForm):
+
+    username = forms.CharField(widget=TextInput(attrs={
+        'class':'form-control input-md',
+        'style': 'min-width: 0; width: 50%; display: inline;',
+    }), required = True)
+
+    password = forms.CharField(widget=TextInput(attrs={
+        'class':'form-control input-md',
+        'style': 'min-width: 0; width: 50%; display: inline;',
+    }), required = True)
 
     class Meta:
         model = User
@@ -17,17 +28,6 @@ class LoginForm(AuthenticationForm):
         'username',
         'password',
     ]
-
-    widgets = {
-        'username': forms.TextInput(attrs={
-            'class':'form-control input-md',
-            'style': 'min-width: 0; width: 50%; display: inline;',
-        }),
-        'password': forms.PasswordInput(attrs={
-            'class':'form-control input-md',
-            'style': 'min-width: 0; width: 50%; display: inline;',
-        }),
-    }
 
 
 class RegisterForm(UserCreationForm):
@@ -61,11 +61,11 @@ class RegisterForm(UserCreationForm):
                 'class':'form-control input-md',
                 'style': 'min-width: 0; width: 50%; display: inline;',
             }),
-            'password1': forms.PasswordInput(attrs={
+            'password1': forms.TextInput(attrs={
                 'class':'form-control input-md',
                 'style': 'min-width: 0; width: 50%; display: inline;',
             }),
-            'password2': forms.PasswordInput(attrs={
+            'password2': forms.TextInput(attrs={
                 'class':'form-control input-md',
                 'style': 'min-width: 0; width: 50%; display: inline;',
             }),

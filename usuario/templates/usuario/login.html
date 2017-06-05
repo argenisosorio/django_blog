@@ -5,6 +5,7 @@
 <form action="{% url 'login' %}" method="post">{% csrf_token %}
     Username: {{ form.username }}
     <br />
+    <br />
     Password: {{ form.password }}
     <br />
     <br />

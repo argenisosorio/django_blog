@@ -13,12 +13,12 @@ class LoginForm(AuthenticationForm):
 
     username = forms.CharField(widget=TextInput(attrs={
         'class':'form-control input-md',
-        'style': 'min-width: 0; width: 50%; display: inline;',
+        'style': 'min-width: 0; width: 25%; display: inline;',
     }), required = True)
 
-    password = forms.CharField(widget=TextInput(attrs={
+    password = forms.CharField(widget=PasswordInput(attrs={
         'class':'form-control input-md',
-        'style': 'min-width: 0; width: 50%; display: inline;',
+        'style': 'min-width: 0; width: 25%; display: inline;',
     }), required = True)
 
     class Meta:

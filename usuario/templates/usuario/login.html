@@ -1,6 +1,17 @@
 {% extends "base/base.html" %}
 {% block titulo %}Login{% endblock %}
 {% block cuerpo %}
+<script type="text/javascript">
+/*
+* Función que recarga la imagen del captcha
+*/
+$(document).ready(function() {
+    $('.js-captcha-refresh').click(function() {
+        //alert("xxxxx");
+        location.reload();
+    });
+});
+</script>
 <div align="center">
     <h2>Login</h2>
     <form action="{% url 'login' %}" method="post">{% csrf_token %}
@@ -11,6 +22,9 @@
         <br />
         <br />
         Captcha: {{ form.captcha }}
+        <button class="js-captcha-refresh">
+            <span class="glyphicon glyphicon-refresh" data-toggle="tooltip" title="Presione para recargar la imagen del captcha"></span>
+        </button>
         <br />
         <br />
         <button class="btn btn-success" type="submit">Login</button>

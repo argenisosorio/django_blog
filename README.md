@@ -1,6 +1,6 @@
 # Proyecto tipo Blog en Django
 
-# Detalles
+## Detalles
 * Incorpora gestión de usuarios (autenticación, creación de cuentas)
 * Crear, Actualizar, Eliminar y Detallar publicaciones
 
